@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Demo backend for workshop using express and dynamodb. It supports retrieve, delete operations.",
+  "main": "index.js",
+  "repository": "https://github.com/sonzay281/test",
+  "author": "Sanjaya Sapkota",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.826.0",
+    "@aws-sdk/lib-dynamodb": "^3.826.0",
+    "express": "^5.1.0",
+    "uuid": "^11.1.0"
+  }
+}
