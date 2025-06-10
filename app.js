@@ -16,12 +16,10 @@ app.get("/students", async (req, res) => {
     res.json(await getAllStudents());
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({
-        error: "Could not fetch students",
-        details: { type: err.name, message: err.message },
-      });
+    res.status(500).json({
+      error: "Could not fetch students",
+      details: { type: err.name, message: err.message },
+    });
   }
 });
 // Create
@@ -30,12 +28,10 @@ app.post("/students", async (req, res) => {
     return res.status(201).json(await createStudent(req.body));
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({
-        error: "Could not create user",
-        details: { type: err.name, message: err.message },
-      });
+    res.status(500).json({
+      error: "Could not create user",
+      details: { type: err.name, message: err.message },
+    });
   }
 });
 
@@ -58,12 +54,10 @@ app.put("/students/:id", async (req, res) => {
     res.json(await updateStudent(req.params.id, req.body));
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({
-        error: "Could not update user",
-        details: { type: err.name, message: err.message },
-      });
+    res.status(500).json({
+      error: "Could not update user",
+      details: { type: err.name, message: err.message },
+    });
   }
 });
 
@@ -71,17 +65,19 @@ app.put("/students/:id", async (req, res) => {
 app.delete("/students/:id", async (req, res) => {
   try {
     console.log(req.query.email);
-    deleteStudent(req.params.id,req.query.email);
+    deleteStudent(req.params.id, req.query.email);
     res.status(204).send();
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({
-        error: "Could not delete user",
-        details: { type: err.name, message: err.message },
-      });
+    res.status(500).json({
+      error: "Could not delete user",
+      details: { type: err.name, message: err.message },
+    });
   }
+});
+
+app.get("/", async (req, res) => {
+  res.status(200).json({ status: "ok" });
 });
 
 const PORT = process.env.PORT || 5005;
